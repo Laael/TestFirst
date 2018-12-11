@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestFirst.Views.MainPage"
+             Title="{Binding Title}">
+
+    <StackLayout>
+        <ListView x:Name="list" ItemsSource="{Binding Images}" 
+                  IsPullToRefreshEnabled="True"
+                  ItemTapped="OnItemTapped"
+                  RefreshCommand="{Binding RefreshCommand}"
+                  IsRefreshing="{Binding Refreshing}" >
+            <ListView.ItemTemplate>
+                
+                <DataTemplate>
+                <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding ImageUrl}"/>
+                            <Label Text="{Binding Title}"/>
+                        </StackLayout>
+                </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
